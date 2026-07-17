@@ -1,5 +1,7 @@
 FROM debian:bullseye
 #Install MariaDB
+#RUN  = katrun WAQT BUILD   (docker build)
+#CMD  = katrun WAQT START   (docker run)
 RUN apt-get update && apt-get install -y \
     mariadb-server \
     && rm -rf /var/lib/apt/lists/*

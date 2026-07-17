@@ -1,7 +1,13 @@
 [mysqld]
+# Run the MariaDB server process as the dedicated mysql system user.
 user            = mysql
+# Listen on the default MySQL/MariaDB TCP port.
 port            = 3306
+# Directory where database files (tables, logs, metadata) are stored.
 datadir         = /var/lib/mysql
+# Listen on all network interfaces so containers/services can connect.
 bind-address    = 0.0.0.0
+# Unix socket path for local connections inside the container.
 socket          = /run/mysqld/mysqld.sock
+# Disable DNS lookups for client hostnames (faster and avoids DNS issues).
 skip-name-resolve
