@@ -1,3 +1,4 @@
+#settings dyal server
 [mysqld]
 # Run the MariaDB server process as the dedicated mysql system user.
 user            = mysql

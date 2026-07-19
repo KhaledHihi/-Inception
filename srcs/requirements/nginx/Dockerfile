@@ -11,7 +11,7 @@ RUN mkdir -p /etc/nginx/ssl && \
     -newkey rsa:2048 \
     -keyout /etc/nginx/ssl/khhihi.key \
     -out /etc/nginx/ssl/khhihi.crt \
-    -subj "/C=MA/ST=Khouribga/L=Khouribga/O=42/CN=khhihi.42.fr"
+    -subj "/C=MA/ST=Morocco/L=benguerir/O=42/CN=khhihi.42.fr"
 
 # Copy nginx configuration
 COPY conf/nginx.conf /etc/nginx/nginx.conf
