@@ -1,9 +1,8 @@
 #!/bin/bash
-#exit immediately if any command fails
+
 set -e
 
 mkdir -p /run/mysqld
-#change ownership of the directory to mysql user and group
 chown -R mysql:mysql /run/mysqld
 chown -R mysql:mysql /var/lib/mysql
 
@@ -18,13 +17,6 @@ if [ ! -f "${INIT_MARKER}" ]; then
         mysql_install_db --user=mysql --datadir=/var/lib/mysql > /dev/null
     fi
 
-    #1. Switch to system database
-    #2. Reload privilege tables
-    #3. Create wordpress database
-    #4. Create wpuser — accessible mn any container -- '%' = any host — required because WordPress f container mkhtalef
-    #5. Give wpuser full access on wordpress database -- .* = all tables
-    #6. Set root password
-    #7. Apply all changes
     mysqld --user=mysql --bootstrap <<EOSQL
 USE mysql;
 FLUSH PRIVILEGES;

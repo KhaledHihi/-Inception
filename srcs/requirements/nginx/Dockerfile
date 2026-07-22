@@ -13,9 +13,8 @@ RUN mkdir -p /etc/nginx/ssl && \
     -out /etc/nginx/ssl/khhihi.crt \
     -subj "/C=MA/ST=Morocco/L=benguerir/O=42/CN=khhihi.42.fr"
 
-# Copy nginx configuration
 COPY conf/nginx.conf /etc/nginx/nginx.conf
-# Expose HTTPS port
+
 EXPOSE 443
-# Run nginx in foreground (PID 1)
+
 CMD ["nginx", "-g", "daemon off;"]

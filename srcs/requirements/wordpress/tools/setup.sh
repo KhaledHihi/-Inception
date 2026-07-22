@@ -3,11 +3,14 @@ set -e
 
 echo "Starting WordPress container..."
 
-# Read secrets
 DB_PASSWORD=$(cat /run/secrets/db_password)
 ADMIN_USER=$(grep wp_admin_user /run/secrets/credentials | cut -d= -f2)
 ADMIN_PASSWORD=$(grep wp_admin_password /run/secrets/credentials | cut -d= -f2)
 ADMIN_EMAIL=$(grep wp_admin_email /run/secrets/credentials | cut -d= -f2)
+
+EDITOR_USER=$(grep wp_editor_user /run/secrets/credentials | cut -d= -f2)
+EDITOR_PASSWORD=$(grep wp_editor_password /run/secrets/credentials | cut -d= -f2)
+EDITOR_EMAIL=$(grep wp_editor_email /run/secrets/credentials | cut -d= -f2)
 
 echo "Waiting for MariaDB to be ready..."
 
@@ -50,14 +53,12 @@ else
 fi
 
 # Create second user (non-admin) only if missing
-if ! wp user get wpeditor --field=ID --allow-root > /dev/null 2>&1; then
+if ! wp user get "${EDITOR_USER}" --field=ID --allow-root > /dev/null 2>&1; then
     wp user create --allow-root \
-        wpeditor editor@${DOMAIN_NAME} \
+        "${EDITOR_USER}" "${EDITOR_EMAIL}" \
         --role=editor \
-        --user_pass=Editor@2026
+        --user_pass="${EDITOR_PASSWORD}"
 fi
 
-# Start PHP-FPM in foreground
-#php-fpm7.4 is the command to start the PHP FastCGI Process Manager for PHP version 7.4. The -F option tells it to run in the foreground, which is useful for containerized environments where you want the main process to keep running and not exit immediately.
 mkdir -p /run/php
 exec php-fpm7.4 -F
