@@ -9,9 +9,9 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /etc/nginx/ssl && \
     openssl req -x509 -nodes -days 365 \
     -newkey rsa:2048 \
-    -keyout /etc/nginx/ssl/khhihi.key \
-    -out /etc/nginx/ssl/khhihi.crt \
-    -subj "/C=MA/ST=Morocco/L=benguerir/O=42/CN=khhihi.42.fr"
+    -keyout /etc/nginx/ssl/khaled.key \
+    -out /etc/nginx/ssl/khaled.crt \
+    -subj "/C=MA/ST=Morocco/L=benguerir/O=42/CN=khaled.42.fr"
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 

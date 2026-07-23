@@ -42,14 +42,14 @@ make re     # full cleanup and rebuild
 Add this line to `/etc/hosts` if it is not already present:
 
 ```text
-127.0.0.1 khhihi.42.fr
+127.0.0.1 khaled.42.fr
 ```
 
 Then open:
 
-- Website: `https://khhihi.42.fr`
-- WordPress admin panel: `https://khhihi.42.fr/wp-admin`
-- Static website: `https://khhihi.42.fr/static/`
+- Website: `https://khaled.42.fr`
+- WordPress admin panel: `https://khaled.42.fr/wp-admin`
+- Static website: `https://khaled.42.fr/static/`
 - Adminer: `http://localhost:8080`
 - Netdata: `http://localhost:19999`
 
@@ -82,4 +82,4 @@ docker compose -f srcs/docker-compose.yml logs nginx
 docker compose -f srcs/docker-compose.yml logs wordpress
 ```
 
-If the website does not load, check that the containers are running and that `khhihi.42.fr` points to `127.0.0.1` in `/etc/hosts`.
+If the website does not load, check that the containers are running and that `khaled.42.fr` points to `127.0.0.1` in `/etc/hosts`.

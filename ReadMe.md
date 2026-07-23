@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by khhihi.*
+*This project has been created as part of the 42 curriculum by khaled.*
 
 # Inception
 
@@ -58,9 +58,9 @@ This project uses a custom bridge network named `inception`. Containers communic
 | Data location | Managed by Docker | Specific host path |
 | Subject requirement | ✅ Required | ❌ Forbidden for persistent data |
 | Used for | MariaDB data, WordPress files | Not used |
-| Path | `/home/khhihi/data/` | — |
+| Path | `/home/khaled/data/` | — |
 
-This project uses named volumes with `driver_opts` to store data at `/home/khhihi/data/db` and `/home/khhihi/data/wordpress` on the host machine.
+This project uses named volumes with `driver_opts` to store data at `/home/khaled/data/db` and `/home/khaled/data/wordpress` on the host machine.
 
 ---
 
@@ -75,7 +75,7 @@ This project uses named volumes with `driver_opts` to store data at `/home/khhih
 ### Installation
 
 ```bash
-git clone https://github.com/khhihi/inception.git
+git clone https://github.com/khaled/inception.git
 cd inception
 ```
 
@@ -95,7 +95,7 @@ Create the `.env` file:
 
 ```bash
 cat > srcs/.env << 'ENV'
-DOMAIN_NAME=khhihi.42.fr
+DOMAIN_NAME=khaled.42.fr
 MYSQL_USER=wpuser
 MYSQL_DATABASE=wordpress
 ENV
@@ -121,11 +121,11 @@ make re
 
 Add to `/etc/hosts` (done automatically by `make`):
 ```
-127.0.0.1 khhihi.42.fr
+127.0.0.1 khaled.42.fr
 ```
 
-- Website: `https://khhihi.42.fr`
-- Admin panel: `https://khhihi.42.fr/wp-admin`
+- Website: `https://khaled.42.fr`
+- Admin panel: `https://khaled.42.fr/wp-admin`
 
 > Note: The browser will show an SSL warning because the certificate is self-signed. Click "Advanced" → "Accept Risk and Continue".
 

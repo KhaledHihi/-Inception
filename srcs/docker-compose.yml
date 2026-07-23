@@ -32,57 +32,6 @@ services:
     networks:
       - inception
 
-  adminer:
-    build: ./requirements/bonus/Adminer
-    container_name: adminer
-    image: adminer
-    restart: on-failure
-    depends_on:
-      - mariadb
-    ports:
-      - "8080:8080"
-    networks:
-      - inception
-
-  ftp:
-    build: ./requirements/bonus/FTP
-    container_name: ftp
-    image: ftp
-    restart: on-failure
-    depends_on:
-      - wordpress
-    ports:
-      - "21:21"
-      - "30000-30009:30000-30009"
-    volumes:
-      - wp_data:/var/www/html
-    networks:
-      - inception
-
-  netdata:
-    build: ./requirements/bonus/Netdata
-    container_name: netdata
-    image: netdata
-    restart: on-failure
-    ports:
-      - "19999:19999"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    networks:
-      - inception
-
-  redis:
-    build: ./requirements/bonus/Redis
-    container_name: redis
-    image: redis
-    restart: on-failure
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    networks:
-      - inception
-      
   nginx:
     build: ./requirements/nginx
     container_name: nginx
@@ -112,21 +61,19 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/khhihi/data/db
+      device: /home/khaled/data/db
   wp_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/khhihi/data/wordpress
-  redis_data:
-    driver: local
+      device: /home/khaled/data/wordpress
   static_website:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/khhihi/data/static_website
+      device: /home/khaled/data/static_website
 
 networks:
   inception:

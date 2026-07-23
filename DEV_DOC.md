@@ -13,7 +13,7 @@ This project is a Docker Compose setup for the Inception stack.
 Clone the repository and create the required files:
 
 ```bash
-git clone https://github.com/khhihi/inception.git
+git clone https://github.com/khaled/inception.git
 cd inception
 ```
 
@@ -33,7 +33,7 @@ Create the environment file:
 
 ```bash
 cat > srcs/.env << 'ENV'
-DOMAIN_NAME=khhihi.42.fr
+DOMAIN_NAME=khaled.42.fr
 MYSQL_USER=wpuser
 MYSQL_DATABASE=wordpress
 ENV
@@ -84,11 +84,11 @@ docker compose -f srcs/docker-compose.yml up -d --build nginx
 
 ## Volumes and Persistence
 
-Persistent data is stored on the host under `/home/khhihi/data`.
+Persistent data is stored on the host under `/home/khaled/data`.
 
-- MariaDB data: `/home/khhihi/data/db`
-- WordPress files: `/home/khhihi/data/wordpress`
-- Static website files: `/home/khhihi/data/static_website`
+- MariaDB data: `/home/khaled/data/db`
+- WordPress files: `/home/khaled/data/wordpress`
+- Static website files: `/home/khaled/data/static_website`
 
 These directories are created by `make setup` and are mounted into the containers using Docker volumes with `driver_opts`.
 
@@ -107,7 +107,7 @@ The services run on the custom bridge network named `inception`.
 If you need to access the site locally, ensure `/etc/hosts` contains:
 
 ```text
-127.0.0.1 khhihi.42.fr
+127.0.0.1 khaled.42.fr
 ```
 
 ## Notes for Development
