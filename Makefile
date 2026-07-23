@@ -1,5 +1,5 @@
 COMPOSE_FILE = srcs/docker-compose.yml
-DATA_DIR = /home/khaled/data
+DATA_DIR = /home/khhihi/data
 
 all: setup
 	docker compose -f $(COMPOSE_FILE) up -d --build
@@ -7,6 +7,8 @@ all: setup
 setup:
 	mkdir -p $(DATA_DIR)/db
 	mkdir -p $(DATA_DIR)/wordpress
+	mkdir -p $(DATA_DIR)/static_website
+	cp -f srcs/requirements/bonus/Static_website/static.html $(DATA_DIR)/static_website/index.html
 	@if ! grep -q "khhihi.42.fr" /etc/hosts; then \
 		echo "127.0.0.1 khhihi.42.fr" | sudo tee -a /etc/hosts; \
 	fi
